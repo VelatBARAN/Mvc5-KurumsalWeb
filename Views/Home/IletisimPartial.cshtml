@@ -1,0 +1,15 @@
+﻿@model KurumsalWeb.Models.Model.Iletisim
+@{
+    Layout = null;
+}
+    <div class="widget">
+        @*<h4 class="widgetheading" style="color:#0026ff">Bizimle iletişime geçin</h4>*@
+        <strong>WM SOFTWARE</strong><br><br />
+            <address>
+                @ViewBag.Iletisim.Adres
+            </address>
+            <p>
+                <i class="icon-phone"></i>Tel : @ViewBag.Iletisim.Telefon<br>
+                <i class="icon-phone"></i>Fax : @ViewBag.Iletisim.Fax<br>
+                <i class="icon-envelope-alt"></i>Email : @ViewBag.Iletisim.Email
+    </div>

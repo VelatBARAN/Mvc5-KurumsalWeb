@@ -1,0 +1,38 @@
+﻿@model KurumsalWeb.Models.Model.Slider
+@{
+    ViewBag.Title = "SliderDetay";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-16">
+                <ul class="breadcrumb">
+                    <li><a href="/Anasayfa"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+                    <li class="active">Slider Detay</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-16">
+                <div class="title bar border mb30">
+                    <h3 style="font-size:18px"><a>@Model.Baslik</a></h3>
+                    <div class="bottom-article"></div>
+                </div>
+                <article>
+                    <img src="@Model.ResimURL" alt="@Model.Baslik" class="img-responsive" />
+
+                    <p style="margin-top:50px">
+                        @Html.Raw(Model.Aciklama)
+                    </p>
+                    <a href="/Anasayfa" class="pull-right">Geri Git<i class="icon-angle-right"></i></a>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+

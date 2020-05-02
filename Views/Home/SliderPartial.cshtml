@@ -1,0 +1,27 @@
+﻿@model IEnumerable<KurumsalWeb.Models.Model.Slider>
+@using KurumsalWeb.Helper;
+@{
+    Layout = null;
+}
+    <section id="featured">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="main-slider" class="flexslider">
+                        <ul class="slides">
+                            @foreach (var item in Model)
+                            {
+                                <li>
+                                    <a href="/SliderPost/@SeoHelper.ToSeoUrl(item.Baslik).ToLower()/@item.SliderId"><img src="@item.ResimURL" alt="" /></a>
+                                    <div class="flex-caption">
+                                        <h2 style="font-size:18px">@item.Baslik</h2>
+                                        <a href="/SliderPost/@SeoHelper.ToSeoUrl(item.Baslik).ToLower()/@item.SliderId" class="btn btn-theme">Devamını Oku</a>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

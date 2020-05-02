@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Admin Ana Sayfa";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!--overview start-->
+<div class="row">
+    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+        <div class="info-box blue-bg">
+            <div class="count">@ViewBag.BlogCount</div>
+            <div class="title"> Blog Yazıları</div>
+        </div>
+        <!--/.info-box-->
+    </div>
+    <!--/.col-->
+
+    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+        <div class="info-box brown-bg">
+            <div class="count">@ViewBag.KategoriCount</div>
+            <div class="title">Kategoriler</div>
+        </div>
+        <!--/.info-box-->
+    </div>
+    <!--/.col-->
+
+    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+        <div class="info-box dark-bg">
+            <div class="count">@ViewBag.HizmetCount</div>
+            <div class="title">Hizmetler</div>
+        </div>
+        <!--/.info-box-->
+    </div>
+    <!--/.col-->
+
+    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+        <div class="info-box green-bg">
+            <div class="count">@ViewBag.YorumCount</div>
+            <div class="title">Yorumlar</div>
+        </div>
+        <!--/.info-box-->
+    </div>
+    <!--/.col-->
+
+</div>
+<!--/.row-->
+<div class="text-right">
+    <div class="credits">
+        <a href="#">Bilgisayar Mühendisi - Welat BARAN tarafından hazırlandı.</a>
+    </div>
+</div>
+

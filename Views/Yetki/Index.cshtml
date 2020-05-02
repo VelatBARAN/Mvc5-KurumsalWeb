@@ -1,0 +1,38 @@
+﻿@model IEnumerable<KurumsalWeb.Models.Model.Yetki>
+
+@{
+    ViewBag.Title = "Admin Yetki";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<p>
+    <a class="btn btn-success" href="/Yetki/Create">Yetki Ekle</a>
+</p>
+<table class="table table-striped table-advance table-hover table-bordered table-responsive">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.YetkiAd)
+        </th>
+        <th>
+            İşlemler
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.YetkiAd)
+            </td>
+            <td>
+                <button class="btn btn-default">@Html.ActionLink("Güncelle", "Edit", new { id = item.YetkiId }) </button>
+                @Html.ActionLink("Sil", "YetkiSil", new { id = item.YetkiId }, new
+{
+@class = "btn btn-warning",
+onclick = "return confirm('Gerçekten silmek istiyor musunuz?')"
+})
+            </td>
+        </tr>
+    }
+
+</table>

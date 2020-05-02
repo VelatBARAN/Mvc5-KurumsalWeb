@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Iletisim";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="breadcrumb">
+                    <li><a href="/Anasayfa"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+                    <li class="active">İletişim</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="content">
+    <div class="col-lg-4">
+        @{ 
+            Html.RenderAction("IletisimPartial", "Home");
+        }
+    </div>
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100714.30434761225!2d40.0926372772276!3d37.922907113284666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40751fa80abac46b%3A0x53070c279310852c!2sDiyarbak%C4%B1r!5e0!3m2!1str!2str!4v1582091608492!5m2!1str!2str" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h4>Aşağıda formda belirtilen alanları doldurarak bize ulaşabilirsiniz.</h4>
+                @{
+                    if (ViewBag.Uyari == "Mesajınız başarıyla gönderilmiştir.")
+                    {
+                        <div id="sendmessage">@ViewBag.Uyari</div>
+                    }
+                    else
+                    {
+                        <div id="errormessage">@ViewBag.HataUyari</div>
+                    }
+                }
+            <form action="/Home/Iletisim/" method="post" role="form" class="contactForm">
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    <input type="text" name="adsoyad" class="form-control" id="name" placeholder="İsminiz" data-rule="minlen:4" data-msg="Lütfen en az 4 karekter giriniz" />
+                    <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Mail Adresiniz" data-rule="email" required />
+                    <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="konu" id="subject" placeholder="Konu" data-rule="minlen:4" required />
+                    <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" name="mesaj" rows="5" data-rule="required" required placeholder="Mesajınız"></textarea>
+                    <div class="validation"></div>
+                </div>
+
+                <div class="text-center"><button type="submit" class="btn btn-theme">Gönder</button></div>
+
+
+            </form>
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<KurumsalWeb.Models.Model.HizmetAlan>
+@using KurumsalWeb.Helper;
+@{
+    Layout = null;
+}
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h4 class="heading" style="font-size:20px">Yapılan Hizmetler</h4>
+                <div class="row" style="margin-top:15px">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-lg-3">
+                            <div class="box">
+                                <div class="box-gray aligncenter">
+                                    <h4>@item.Baslik</h4>
+                                    <div class="icon">
+                                        @*<i class="fa fa-wechat fa-3x"></i>*@
+                                    </div>
+                                    <p>
+                                        @Html.Raw(item.Aciklama.Substring(0, 90))
+                                    </p>
+                                </div>
+
+                                <div class="box-bottom">
+                                    <a href="/HizmetAlan/@SeoHelper.ToSeoUrl(item.Baslik).ToLower()-@item.HizmetAlanId">Devamını Oku</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <!-- divider -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="solidline">
+                </div>
+            </div>
+        </div>
+        <!-- end divider -->
+
+    </div>
+</section>

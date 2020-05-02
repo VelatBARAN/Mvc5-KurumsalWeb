@@ -1,0 +1,56 @@
+﻿
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="widget">
+                <h5 class="widgetheading">Bizimle iletişime geçin</h5>
+                <address>
+                    <strong>WM SOFTWARE</strong><br>
+                    @ViewBag.Iletisim.Adres<br />
+                </address>
+                <p>
+                    <i class="icon-phone"></i>Tel : @ViewBag.Iletisim.Telefon<br>
+                    <i class="icon-phone"></i>Fax : @ViewBag.Iletisim.Fax<br>
+                    <i class="icon-envelope-alt"></i>Email : @ViewBag.Iletisim.Email
+                </p>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="widget">
+                <h5 class="widgetheading">Sayfalar</h5>
+                <ul class="link-list">
+                    <li><a href="/Anasayfa">Anasayfa</a></li>
+                    <li><a href="/Hakkimizda">Hakkımızda</a></li>
+                    <li><a href="/Hizmetler">Hizmetler</a></li>
+                    <li><a href="/BlogPost">Blog</a></li>
+                    <li><a href="/Iletisim">İletişim</a></li>
+                </ul>
+            </div>
+        </div>
+        @{ 
+            Html.RenderAction("EnSonYapilanBlog", "Home");
+        }
+    </div>
+</div>
+<div id="sub-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="copyright">
+                    <p>&copy;2020- Tüm Hakları saklıdır.</p>
+                    <div class="credits">
+                        <a href="#">Bilgisayar Mühendisi - Welat BARAN tarafından hazırlandı </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <ul class="social-network">
+                    <li><a href="@ViewBag.Iletisim.Telegram" target="_blank" data-placement="top" title="Telegram"><i class="fa fa-telegram"></i></a></li>
+                    <li><a href="@ViewBag.Iletisim.Twitter" target="_blank" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="@ViewBag.Iletisim.Linkedln" target="_blank" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="@ViewBag.Iletisim.Instagram" target="_blank" data-placement="top" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

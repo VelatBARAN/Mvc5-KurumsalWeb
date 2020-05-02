@@ -1,0 +1,63 @@
+﻿@model IEnumerable<KurumsalWeb.Models.Model.Yorum>
+
+@{
+    ViewBag.Title = "Admin Yorum";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<p>
+    <a href="/Yorum/Create" class="btn btn-success">Yeni Yorum Ekle</a>
+</p> 
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Blog.Baslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdSoyad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Eposta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Icerik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Onay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YorumTarih)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Blog.Baslik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdSoyad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Eposta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Icerik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Onay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YorumTarih)
+        </td>
+        <td>
+            <a style="background-color:#ff6a00" class="btn btn-success" href="/Yorum/Edit/@item.YorumId">Güncelle</a>
+            <a style="background-color:#ff4343" class="btn btn-block" href="/Yorum/Delete/@item.YorumId">Sil</a>
+            @*@Html.ActionLink("Güncelle", "Edit", new { id = item.YorumId }) |*@
+            @*@Html.ActionLink("Sil", "Delete", new { id = item.YorumId })*@
+        </td>
+    </tr>
+}
+
+</table>

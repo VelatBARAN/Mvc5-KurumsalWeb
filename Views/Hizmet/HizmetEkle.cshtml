@@ -1,0 +1,26 @@
+﻿@model KurumsalWeb.Models.Model.Hizmet
+@{
+    ViewBag.Title = "HizmetEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+    <script type="text/javascript">
+    CKEDITOR.replace('editor')
+    </script>
+@using (Html.BeginForm("HizmetEkle","Hizmet",FormMethod.Post,new { @enctype="multipart/form-data"}))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <label>Başlık</label>
+        <input type="text" name="Baslik" class="form-control" required placeholder="Başlığı giriniz.."/>
+        <br />
+        <label>Açıklama</label>
+        <textarea class="ckeditor" required name="Aciklama"></textarea>
+        <br />
+        <label>Resim</label>
+        <input type="file" required name="ResimURL" class="form-control" accept=".png,.jpg,.jpeg"/>
+        <br />
+        <br />
+        <input type="submit" class="btn btn-info" value="Kaydet"/>
+        <a href="/yonetimpaneli/hizmetler" class="btn btn-danger">İptal</a>
+    </div>
+}

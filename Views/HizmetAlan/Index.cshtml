@@ -1,0 +1,40 @@
+﻿@model IEnumerable<KurumsalWeb.Models.Model.HizmetAlan>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+    <a href="/HizmetAlan/HizmetAlanEkle" class="btn btn-primary">Yeni Hizmet Alanı Ekle</a>
+<table class="table table-advance table-bordered table-striped table-responsive" style="margin-top:15px">
+
+    <thead>
+        <tr>
+            <th>Başlık</th>
+            <th>Açıklama</th>
+            <th>Resim</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.Baslik</td>
+            <td>@Html.Raw(item.Aciklama)</td>
+            <td><img src="@item.ResimURL" width="150" height="150" class="img-responsive"/></td>
+            <td>
+                <div class="btn-group">
+                    <a class="btn btn-success" href="/HizmetAlan/HizmetAlanGuncelle/@item.HizmetAlanId">Güncelle</a>
+                    @*<a class="btn btn-danger" href="/Admin/AdminSil/@item.AdminId">Sil</a>*@
+
+                    @Html.ActionLink("Sil", "HizmetAlanSil", new { id = item.HizmetAlanId }, new
+           {
+               @class = "btn btn-warning",
+               onclick = "return confirm('Gerçekten silmek istiyor musunuz?')"
+           })
+                </div>
+            </td>
+        </tr>        
+    }
+        </tbody>
+    </table>
+

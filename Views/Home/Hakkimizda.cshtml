@@ -1,0 +1,32 @@
+﻿@model KurumsalWeb.Models.Model.Hakkimizda
+@{
+    ViewBag.Title = "Hakkimizda";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+    <section id="inner-headline">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-16">
+                    <ul class="breadcrumb">
+                        <li><a href="/Anasayfa"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+                        <li class="active">Hakkımızda</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <em class="align-left">
+                        @Html.Raw(Model.Aciklama)
+                    </em>
+                </div>
+                <div class="col-lg-5">
+                    <img src="@Model.ResimURL" alt="" class="align-right"/>
+                </div>
+            </div>
+        </div>
+    </section>
+

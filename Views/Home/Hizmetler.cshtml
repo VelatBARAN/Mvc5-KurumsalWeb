@@ -1,0 +1,71 @@
+﻿@model IEnumerable<KurumsalWeb.Models.Model.Hizmet>
+@{
+    ViewBag.Title = "Hizmetler";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-16">
+                <ul class="breadcrumb">
+                    <li><a href="/Anasayfa"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+                    <li class="active">Hizmetler</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="content">
+    <div class="container">
+        <!-- divider -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="solidline">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                @*<ul class="portfolio-categ filter">
+                    <li class="all active"><a href="#">Hepsi</a></li>
+                    <li class="web"><a href="#" title="">Web Tasarımı</a></li>
+                    <li class="icon"><a href="#" title="">İcon</a></li>
+                    <li class="graphic"><a href="#" title="">Grafik Tasarımı</a></li>
+                </ul>
+                <div class="clearfix">
+                </div>*@
+                <h4 class="heading">Yapılan Son Hizmetler</h4>
+
+                <div class="row">
+                    <section id="projects">
+                        <ul id="thumbs" class="portfolio">
+                            <!-- Item Project and Filter Name -->
+                            @{
+                                foreach (var item in Model)
+                                {
+                                    <li class="col-lg-3 design" data-id="id-0" data-type="web">
+                                        <div class="item-thumbs">
+                                            <!-- Fancybox - Gallery Enabled - Title - Full Image -->
+                                            <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="@item.Baslik" href="@item.ResimURL">
+                                                <span class="overlay-img"></span>
+                                                <span class="overlay-img-thumb font-icon-plus"></span>
+                                            </a>
+                                            <img src="@item.ResimURL" alt="@item.Aciklama">
+
+                                            <!-- Thumb Image and Description -->
+                                        </div>
+                                    </li>
+                                }
+                            }
+                            <!-- End Item Project -->
+                        </ul>
+                    </section>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

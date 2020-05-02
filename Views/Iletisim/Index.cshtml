@@ -1,0 +1,36 @@
+﻿@model KurumsalWeb.Models.Model.Iletisim
+@{
+    ViewBag.Title = "Admin İletişim";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+    <table class=" table table-bordered table-striped table-hover table-responsive">
+
+        <thead>
+            <tr>
+                <th>Adres</th>
+                <th>Telefon</th>
+                <th>Fax</th>
+                <th>Linkedln</th>
+                <th>Telegram</th>
+                <th>Twitter</th>
+                <th>Instagram</th>
+                <th>EMail</th>
+                <td>İşlemler</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>@Model.Adres</th>
+                <th>@Model.Telefon</th>
+                <th>@Model.Fax</th>
+                <th>@Model.Linkedln</th>
+                <th>@Model.Telegram</th>
+                <th>@Model.Twitter</th>
+                <th>@Model.Instagram</th>
+                <th>@Model.Email</th>
+                <td><a href="/Iletisim/IletisimGuncelle/@Model.IletisimId" class="btn btn-warning">Güncelle</a></td>
+            </tr>
+        </tbody>
+    </table>
+

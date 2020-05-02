@@ -1,0 +1,59 @@
+﻿@model IEnumerable<KurumsalWeb.Models.Model.Admin>
+@{
+    ViewBag.Title = "Adminler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<a class="btn btn-success" href="/Admin/AdminEkle">Yönetici Ekle</a>
+
+<table class="table table-striped table-advance table-hover table-bordered table-responsive" style="margin-top:15px" id="myTable">
+    <thead>
+        <tr>
+            <th><i class="icon_profile"></i> Ad</th>
+            <th><i class="icon_profile"></i> Soyad</th>
+            <th><i class="icon_book"></i> Yetki</th>
+            <th><i class="icon_mail_alt"></i> Eposta</th>
+            <th><i class="icon_bag"></i> Şifre</th>
+            <th><i class="icon_image"></i> Resim</th>
+            <th><i class="icon_box-selected"></i> İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Ad</td>
+                <td>@item.Soyad</td>
+                <td>@item.Yetki.YetkiAd</td>
+                <td>@item.Eposta</td>
+                <td>@item.Sifre</td>
+                <td><img src="@item.ResimURL" width="50" height="50" class="img-responsive" /></td>
+                <td>
+                    <div class="btn-group">
+                        <a class="btn btn-primary" href="/Admin/AdminGuncelle/@item.AdminId">Güncelle</a>
+                        @*<a class="btn btn-danger" href="/Admin/AdminSil/@item.AdminId">Sil</a>*@
+
+                        @Html.ActionLink("Sil", "AdminSil", new { id = item.AdminId }, new
+               {
+                   @class = "btn btn-warning",
+                   onclick = "return confirm('Gerçekten silmek istiyor musunuz?')"
+               })
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<link href="~/Content/DataTables/css/dataTables.bootstrap4.css" rel="stylesheet" />
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs/jszip-2.5.0/dt-1.10.18/b-1.5.6/b-html5-1.5.6/fh-3.1.4/datatables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable(
+            {
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/Turkish.json"
+                }
+            }
+        );
+    });
+</script>

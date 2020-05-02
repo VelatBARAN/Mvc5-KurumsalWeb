@@ -1,0 +1,81 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@using KurumsalWeb.Helper;
+@model IPagedList<KurumsalWeb.Models.Model.Blog>
+@{
+    ViewBag.Title = "BlogKategori";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-16">
+                <ul class="breadcrumb">
+                    <li><a href="/Anasayfa"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+                    <li class="active">Blog</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                @foreach (var item in Model)
+                {
+                    <article>
+                        <div class="post-image">
+                            <div class="post-heading">
+                                <h3 style="font-size:17px"><a href="/BlogPost/@SeoHelper.ToSeoUrl(item.Baslik).ToLower()-@item.BlogId">@item.Baslik</a></h3>
+                                <strong>@item.Kategori.KategoriAd</strong>
+                            </div>
+                            <img src="@item.ResimURL" alt="" />
+                        </div>
+                        <p>
+                            @Html.Raw(item.Icerik.Substring(0, 200));
+                        </p>
+                        <div class="bottom-article">
+                            <ul class="meta-post">
+                                <li><i class="icon-user"></i><a href="#"> Admin</a></li>
+                                <li><i class="icon-folder-open"></i><a href="#"> Blog</a></li>
+                                <li><i class="icon-comments"></i><a href="/BlogPost/@SeoHelper.ToSeoUrl(item.Baslik).ToLower()-@item.BlogId">@item.Yorums.Count() Yorum</a></li>
+                            </ul>
+                            <a href="/BlogPost/@SeoHelper.ToSeoUrl(item.Baslik).ToLower()-@item.BlogId" class="pull-right">Okumaya devam et <i class="icon-angle-right"></i></a>
+                        </div>
+                    </article>
+                }
+
+                <div id="pagination">
+                    @Html.PagedListPager(Model, sayfa => Url.Action("Blog", new { sayfa }), PagedListRenderOptions.Classic);
+                </div>
+
+            </div>
+            <div class="col-lg-4">
+                <aside class="right-sidebar">
+                    @{
+                        Html.RenderAction("BlogKategoriPartial", "Home");
+                    }
+                    <div class="widget">
+                        @{
+                            Html.RenderAction("EnSonGonderilerPartial", "Home");
+                        }
+                    </div>
+                    <div class="widget">
+                        <h5 class="widgetheading">En Popüler Etiketler</h5>
+                        <ul class="tags">
+                            <li><a href="https://www.udemy.com/" target="_blank">MVC</a></li>
+                            <li><a href="https://www.udemy.com/" target="_blank">ASP.Net</a></li>
+                            <li><a href="https://www.udemy.com/" target="_blank">MSSQL Database</a></li>
+                            <li><a href="https://www.udemy.com/" target="_blank">Oracle Database</a></li>
+                            <li><a href="https://www.udemy.com/" target="_blank">Jquery</a></li>
+                            <li><a href="https://www.udemy.com/" target="_blank">Javascrpt</a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>
+

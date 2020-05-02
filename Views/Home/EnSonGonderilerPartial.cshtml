@@ -1,0 +1,25 @@
+﻿@model IEnumerable<KurumsalWeb.Models.Model.Blog>
+@using KurumsalWeb.Helper;
+@{
+    Layout = null;
+}
+<h5 class="widgetheading">En Son Gönderiler</h5>
+<ul class="recent">
+    @{
+        int say = 0;
+        foreach (var item in Model)
+        {
+            say++;
+            if (say <= 4)
+            {
+                <li>
+                    <img src="@item.ResimURL" width="100" height="100" class="pull-left" alt="" />
+                    <h6><a href="/BlogPost/@SeoHelper.ToSeoUrl(item.Baslik).ToLower()-@item.BlogId">@item.Baslik</a></h6>
+                    <p>
+                        @Html.Raw(item.Icerik.Substring(0, 100));
+                    </p>
+                </li>
+            }
+        }
+    }
+</ul>

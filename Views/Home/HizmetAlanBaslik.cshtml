@@ -1,0 +1,24 @@
+﻿@model IEnumerable<KurumsalWeb.Models.Model.HizmetAlan>
+@using KurumsalWeb.Helper;
+@{
+    Layout = null;
+}
+
+<div class="col-lg-4 list-group" style="margin-top:20px">
+        @foreach (var item in Model)
+        {
+                <a href="/HizmetAlan/@SeoHelper.ToSeoUrl(item.Baslik).ToLower()-@item.HizmetAlanId" class="list-group-item list-group-item-action list-group-item-light">
+                    <span class="badge badge-primary badge-pill">*</span>
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">@item.Baslik</h5>
+                        <i class="material-icons"></i>
+                    </div>
+                </a>
+            @*<li>
+                <a href="/HizmetAlan/@SeoHelper.ToSeoUrl(item.Baslik).ToLower()-@item.HizmetAlanId">
+                    <i class="material-icons"></i>@item.Baslik
+                </a>
+            </li>*@
+        }
+
+</div>
